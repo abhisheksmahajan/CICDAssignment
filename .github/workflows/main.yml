@@ -66,7 +66,7 @@ jobs:
       run: |
           wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
           tar -xf apache-jmeter-5.4.3.tgz
-          # working-directory: ${{ github.workspace }}/JmeterAssignment
+          working-directory: ${{ github.workspace }}/JmeterAssignment
     - name: Run JMeter Tests
       run: |
           ./apache-jmeter-5.4.3/bin/jmeter -n -t Jmeter_Assignment.jmx -JcsvValues=Country.csv
