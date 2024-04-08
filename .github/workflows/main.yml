@@ -64,13 +64,13 @@ jobs:
         distribution: 'adopt'
     - name: Download JMeter
       run: |
-          cd CICDAssignment 
+          cd JmeterAssignment
           wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
           tar -xf apache-jmeter-5.4.3.tgz
           working-directory: ${{ github.workspace }}/JmeterAssignment
     - name: Run JMeter Tests
       run: |
-          cd CICDAssignment 
+          cd JmeterAssignment
           ./apache-jmeter-5.4.3/bin/jmeter -n -t Jmeter_Assignment.jmx -JcsvValues=Country.csv
            working-directory: ${{ github.workspace }}/JmeterAssignment
     - name: Upload Results
