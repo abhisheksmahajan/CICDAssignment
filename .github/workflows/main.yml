@@ -21,7 +21,7 @@ jobs:
       - run: sudo apt-get install xvfb
       - name: Run Nightwatch tests
         run: |
-          cd Nightwatch
+          cd Amazon_nightwatch
           xvfb-run --auto-servernum npm test -- --env chrome
       - name: Archive test reports
         uses: actions/upload-artifact@v4
