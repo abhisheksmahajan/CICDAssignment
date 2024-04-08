@@ -79,7 +79,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: jmeter-results
-          path: jmeter/resultr -xf apache-jmeter-5.6.3.tgz
+          path: jmeter
       
 
      
