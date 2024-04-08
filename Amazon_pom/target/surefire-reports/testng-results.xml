@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-04-08T17:11:08 IST" name="Amazon_Test.Testsetup" finished-at="2024-04-08T17:11:19 IST" duration-ms="10956">
+    <groups>
+    </groups>
+    <test started-at="2024-04-08T17:11:08 IST" name="Command line test" finished-at="2024-04-08T17:11:19 IST" duration-ms="10956">
+      <class name="Amazon_Test.Testsetup">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Amazon_Test.Testsetup@4d826d77]" started-at="2024-04-08T17:11:08 IST" name="setup" finished-at="2024-04-08T17:11:11 IST" duration-ms="3104" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="islaunch()[pri:0, instance:Amazon_Test.Testsetup@4d826d77]" started-at="2024-04-08T17:11:11 IST" name="islaunch" finished-at="2024-04-08T17:11:11 IST" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- islaunch -->
+        <test-method signature="searchheadphone()[pri:1, instance:Amazon_Test.Testsetup@4d826d77]" started-at="2024-04-08T17:11:11 IST" name="searchheadphone" finished-at="2024-04-08T17:11:18 IST" duration-ms="7093" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchheadphone -->
+        <test-method signature="validcolor()[pri:2, instance:Amazon_Test.Testsetup@4d826d77]" started-at="2024-04-08T17:11:18 IST" name="validcolor" finished-at="2024-04-08T17:11:19 IST" duration-ms="549" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validcolor -->
+        <test-method is-config="true" signature="close()[pri:0, instance:Amazon_Test.Testsetup@4d826d77]" started-at="2024-04-08T17:11:19 IST" name="close" finished-at="2024-04-08T17:11:19 IST" duration-ms="161" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- Amazon_Test.Testsetup -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Amazon_Test.Testsetup -->
+</testng-results>
