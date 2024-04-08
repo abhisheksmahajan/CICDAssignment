@@ -39,18 +39,18 @@ jobs:
           node-version: 21
       - name: Install Newman
         run: |
-          cd Postman
+          cd Gorest_Postman
           npm install -g newman
           npm install -g newman-reporter-htmlextra
       - name: Run Collections
         run: |
-           cd Postman
-           newman run "Postman API - Assignmentt.json" -e "Users.postman_environment.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
+           cd Gorest_Postman
+           newman run "crudOperation.postman_collection.json" -e "QA_env.postman_environment.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
       - name: Publish report
         uses: actions/upload-artifact@v4
         with:
           name: Postman-Reports
-          path: Postman/testArtifacts
+          path: Gorest_Postman/testArtifacts
  
   jmeter-tests:
     runs-on: ubuntu-latest
