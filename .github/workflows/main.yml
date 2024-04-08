@@ -66,16 +66,16 @@ jobs:
       run: |
           wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
           tar -xf apache-jmeter-5.4.3.tgz
-          working-directory: ${{ github.workspace }}/Jmeter
+          working-directory: ${{ github.workspace }}/JmeterAssignment
     - name: Run JMeter Tests
       run: |
-          ./apache-jmeter-5.4.3/bin/jmeter -n -t Test_Plan.jmx -JcsvValues=Values.csv
-           working-directory: ${{ github.workspace }}/Jmeter
+          ./apache-jmeter-5.4.3/bin/jmeter -n -t Jmeter_Assignment.jmx -JcsvValues=Country.csv
+           working-directory: ${{ github.workspace }}/JmeterAssignment
     - name: Upload Results
       uses: actions/upload-artifact@v3
       with:
           name: jmeter-results
-          path: Jmeter/result
+          path: JmeterAssignment/result
 
 
 
