@@ -5,9 +5,9 @@
 
   <testsuite name="addCart"
     errors="0" failures="0" hostname="" id="" package="addCart" skipped="0"
-    tests="1" time="59.96" timestamp="">
+    tests="1" time="46.73" timestamp="">
   
-    <testcase name="Verify that " classname="addCart" time="26.41" assertions="4">
+    <testcase name="Verify that " classname="addCart" time="20.85" assertions="4">
 
     
 

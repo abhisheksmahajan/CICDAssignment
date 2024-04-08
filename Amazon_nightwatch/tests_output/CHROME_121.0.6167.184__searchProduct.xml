@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="2"
+            failures="1"
             tests="2">
 
   <testsuite name="searchProduct"
-    errors="0" failures="2" hostname="" id="" package="searchProduct" skipped="0"
-    tests="2" time="20.19" timestamp="">
+    errors="0" failures="1" hostname="" id="" package="searchProduct" skipped="0"
+    tests="2" time="22.73" timestamp="">
   
-    <testcase name="Verify that User should able to search Product" classname="searchProduct" time="2.616" assertions="3">
+    <testcase name="Verify that User should able to search Product" classname="searchProduct" time="2.839" assertions="3">
 
     
 
@@ -16,44 +16,14 @@
     
     </testcase>
   
-    <testcase name="Verify that User not should able to search Product Wrong product" classname="searchProduct" time="6.568" assertions="2">
+    <testcase name="Verify that User not should able to search Product Wrong product" classname="searchProduct" time="7.238" assertions="2">
 
-      <failure message="Testing if the URL is &#39;https://www.amazon.in/s?k=999999999999&amp;ref=nb_sb_noss&#39; in 5000ms - expected &#34;is &#39;https://www.amazon.in/s?k=999999999999&amp;ref=nb_sb_noss&#39;&#34; but got: &#34;https://www.amazon.in/s?k=999999999999&amp;crid=W48MYFCG0LO3&amp;sprefix=poco+x2%2Caps%2C203&amp;ref=nb_sb_noss_1&#34; (5201ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/poject/Amazon_nightwatch/test/searchProduct.js:23:24)</failure>
+      <failure message="Testing if the URL is &#39;https://www.amazon.in/s?k=999999999999&amp;ref=nb_sb_noss&#39; in 5000ms - expected &#34;is &#39;https://www.amazon.in/s?k=999999999999&amp;ref=nb_sb_noss&#39;&#34; but got: &#34;https://www.amazon.in/s?k=999999999999&amp;crid=2RYF3B4T8H7YT&amp;sprefix=%2Caps%2C205&amp;ref=nb_sb_noss_2&#34; (5190ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/CICDAssignment/Amazon_nightwatch/test/searchProduct.js:23:24)</failure>
 
     
     </testcase>
   
 
-  
-    <system-err>
-       ✖ TypeError
-   browser.close is not a function
-      - writing an ES6 async test case? - keep in mind that commands return a Promise; 
-      - writing unit tests? - make sure to specify &#34;unit_tests_mode=true&#34; in your config.
-
-    Error location:
-    /home/knoldus/Desktop/poject/Amazon_nightwatch/test/searchProduct.js:10
-    ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-     8 |     before( () =&gt; homePage.navigate());
-     9 |   
-     10 |     after((browser) =&gt; browser.close()); 
-     11 |   
-     12 |     it(&#39;Verify that User should able to search Product&#39;, function(browser) {
-    ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-    Stack Trace :
-    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/poject/Amazon_nightwatch/test/searchProduct.js:10:32)
-    at Context.callAsync (/home/knoldus/Desktop/poject/Amazon_nightwatch/node_modules/nightwatch/lib/testsuite/context.js:531:20)
-    at Context.invokeMethod (/home/knoldus/Desktop/poject/Amazon_nightwatch/node_modules/nightwatch/lib/testsuite/context.js:480:21)
-    at /home/knoldus/Desktop/poject/Amazon_nightwatch/node_modules/nightwatch/lib/testsuite/hooks/_basehook.js:87:49
-    at new Promise (&lt;anonymous&gt;)
-    at AfterAll.run (/home/knoldus/Desktop/poject/Amazon_nightwatch/node_modules/nightwatch/lib/testsuite/hooks/_basehook.js:62:14)
-    at Runnable.__runFn (/home/knoldus/Desktop/poject/Amazon_nightwatch/node_modules/nightwatch/lib/testsuite/index.js:471:35)
-    at Runnable.run (/home/knoldus/Desktop/poject/Amazon_nightwatch/node_modules/nightwatch/lib/testsuite/runnable.js:126:21)
-    at TestSuite.executeRunnable (/home/knoldus/Desktop/poject/Amazon_nightwatch/node_modules/nightwatch/lib/testsuite/index.js:1000:49)
-    at TestSuite.handleRunnable (/home/knoldus/Desktop/poject/Amazon_nightwatch/node_modules/nightwatch/lib/testsuite/index.js:1015:33)
-
-    </system-err>
   
 
     

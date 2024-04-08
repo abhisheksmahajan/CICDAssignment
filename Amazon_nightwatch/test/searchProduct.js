@@ -7,7 +7,7 @@ describe('Sreach Product', function() {
   
     before( () => homePage.navigate());
   
-    after((browser) => browser.close());
+    after((browser) => browser.quit());
   
     it('Verify that User should able to search Product', function(browser) {
       homePage.searchproduct("Poco x2")
