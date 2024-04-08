@@ -1,0 +1,86 @@
+on:
+  push:
+  workflow_dispatch:
+ 
+jobs:
+  Nightwatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          cache: 'npm'
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+      - name: Install dependencies
+        run: |
+          cd Amazon_nightwatch
+          npm ci
+      - run: sudo apt-get install xvfb
+      - name: Run Nightwatch tests
+        run: |
+          cd Amazon_nightwatch
+          xvfb-run --auto-servernum npm test -- --env chrome
+      - name: Archive test reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nightwatch-test-reports
+          path: Amazon_nightwatch/tests_output
+ 
+  Postman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4  # Corrected action for Node.js installation
+        with:
+          node-version: 21
+      - name: Install Newman
+        run: |
+          cd Gorest_Postman
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+      - name: Run Collections
+        run: |
+           cd Gorest_Postman
+           newman run "crudOperation.postman_collection.json" -e "QA_env.postman_environment.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
+      - name: Publish report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Postman-Reports
+          path: Gorest_Postman/testArtifacts
+ 
+  jmeter-tests:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Install Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Download JMeter
+      run: |
+        wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
+        tar -xf apache-jmeter-5.4.3.tgz
+      working-directory: ${{ github.workspace }}
+    - name: Make JMeter script executable
+      run: |
+        chmod +x apache-jmeter-5.4.3/bin/jmeter
+      working-directory: ${{ github.workspace }}
+    - name: Run JMeter Tests
+      run: |
+        cd apache-jmeter-5.4.3/bin/
+        ./jmeter -n -t ../../JmeterAssignment/Jmeter_Assignment.jmx -JcsvValues=../../JmeterAssignment/Country.csv
+      working-directory: ${{ github.workspace }}
+    - name: Upload Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: jmeter-results
+        path: JmeterAssignment/result
+
+
+
