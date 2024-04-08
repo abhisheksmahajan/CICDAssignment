@@ -67,14 +67,20 @@ jobs:
         wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
         tar -xf apache-jmeter-5.4.3.tgz
       working-directory: ${{ github.workspace }}
-    - name: Run JMeter Tests
+    - name: Make JMeter script executable
       run: |
         chmod +x apache-jmeter-5.4.3/bin/jmeter
-        ./apache-jmeter-5.4.3/bin/jmeter -n -t JmeterAssignment/Jmeter_Assignment.jmx -JcsvValues=JmeterAssignment/Country.csv
+      working-directory: ${{ github.workspace }}
+    - name: Run JMeter Tests
+      run: |
+        cd apache-jmeter-5.4.3/bin/
+        ./jmeter -n -t ../../JmeterAssignment/Jmeter_Assignment.jmx -JcsvValues=../../JmeterAssignment/Country.csv
       working-directory: ${{ github.workspace }}
     - name: Upload Results
       uses: actions/upload-artifact@v3
       with:
         name: jmeter-results
         path: JmeterAssignment/result
+
+
 
