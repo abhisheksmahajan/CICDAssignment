@@ -53,28 +53,28 @@ jobs:
           path: Gorest_Postman/testArtifacts
  
   jmeter-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-      - name: Install Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: Download JMeter
-        run: |
-          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
-          tar -xf apache-jmeter-5.4.3.tgz
-        working-directory: ${{ github.workspace }}
-      - name: Run JMeter Tests
-        run: |
-          chmod +x apache-jmeter-5.4.3/bin/jmeter
-          ./apache-jmeter-5.4.3/bin/jmeter -n -t JmeterAssignment/Jmeter_Assignment.jmx -JcsvValues=Country.csv
-        working-directory: ${{ github.workspace }}
-      - name: Upload Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: jmeter-results
-          path: JmeterAssignment/result
- 
+   runs-on: ubuntu-latest
+   steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Install Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Download JMeter
+      run: |
+        wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
+        tar -xf apache-jmeter-5.4.3.tgz
+      working-directory: ${{ github.workspace }}
+    - name: Run JMeter Tests
+      run: |
+        chmod +x apache-jmeter-5.4.3/bin/jmeter
+        ./apache-jmeter-5.4.3/bin/jmeter -n -t JmeterAssignment/Jmeter_Assignment.jmx -JcsvValues=JmeterAssignment/Country.csv
+      working-directory: ${{ github.workspace }}
+    - name: Upload Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: jmeter-results
+        path: JmeterAssignment/result
+
