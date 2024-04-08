@@ -73,7 +73,7 @@ jobs:
         working-directory: ${{ github.workspace }}/jmeter
       - name: Run JMeter Tests
         run: |
-          ./apache-jmeter-5.4.3/bin/jmeter -n -t Test Plan.jmx -JcsvValues=Values.csv
+          ./apache-jmeter-5.4.3/bin/jmeter -n -t Test-Plan.jmx -JcsvValues=Values.csv
         working-directory: ${{ github.workspace }}/jmeter
       - name: Upload Results
         uses: actions/upload-artifact@v3
