@@ -69,8 +69,10 @@ jobs:
         working-directory: ${{ github.workspace }}/JmeterAssignment
       - name: Run JMeter Tests
         run: |
-          ./apache-jmeter-5.4.3/bin/jmeter -n -t Jmeter_Assignment.jmx -JcsvValues=Country.csv
+          chmod +x apache-jmeter-5.4.3/bin/jmeter
+          (cd apache-jmeter-5.4.3/bin && ./jmeter -n -t ../JmeterAssignment/Jmeter_Assignment.jmx -JcsvValues=Country.csv 2>&1) | tee jmeter-log.txt
         working-directory: ${{ github.workspace }}/JmeterAssignment
+        if: success()
       - name: Upload Results
         uses: actions/upload-artifact@v3
         with:
