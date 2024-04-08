@@ -75,7 +75,7 @@ jobs:
       
       - name: Run JMeter Tests
         run: |
-          /opt/apache-jmeter-5.6.3/bin/jmeter -n -t "JmeterAssignment/Jmeter_Assignment.jmx" -l jmeter-results.jtl || exit 0
+          /opt/apache-jmeter-5.6.3/bin/jmeter -n -t "JmeterAssignment/Test Plan.jmx" -l jmeter-results.jtl || exit 0
           if [ $? -eq 0 ]; then
             echo "JMeter tests ran successfully."
           else
