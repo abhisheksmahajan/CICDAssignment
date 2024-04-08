@@ -176,8 +176,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"Status code is 422\", function () {",
-											"    pm.response.to.have.status(422);",
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
 											"});",
 											"",
 											"pm.test(\"Response time is less than 1500ms\", function () {",
@@ -1010,8 +1010,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
 									"});",
 									"",
 									"pm.test(\"Response time is less than 1500ms\", function () {",
