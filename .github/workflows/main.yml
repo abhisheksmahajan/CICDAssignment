@@ -62,20 +62,20 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Download JMeter
+    - name: Download and Install JMeter
       run: |
-          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
-          tar -xf apache-jmeter-5.4.3.tgz
-          working-directory: ${{ github.workspace }}/JmeterAssignment
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+          tar -xf apache-jmeter-5.6.3.tgz
+          sudo mv apache-jmeter-5.6.3 /opt/
+          echo 'export PATH=/opt/apache-jmeter-5.6.3/bin:$PATH' >> ~/.bashrc
+          source ~/.bashrc
     - name: Run JMeter Tests
-      run: |
-          ./apache-jmeter-5.4.3/bin/jmeter -n -t Jmeter_Assignment.jmx -JcsvValues=Country.csv
-           working-directory: ${{ github.workspace }}/JmeterAssignment
+      run: /opt/apache-jmeter-5.6.3/bin/jmeter -n -t "JmeterAssignment/Jmeter_Assignment.jmx"
     - name: Upload Results
       uses: actions/upload-artifact@v3
       with:
           name: jmeter-results
-          path: JmeterAssignment/result
+          path: JmeterAssignment
 
 
 
