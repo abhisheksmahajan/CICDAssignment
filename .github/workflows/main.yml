@@ -108,7 +108,7 @@ jobs:
  
          name: Selenium-test-reports
          if: always()  # Ensure reports are uploaded even if tests fail
-         path: Amazon_pom/target/surefire-reports
+         path: Amazon_pom/target/surefire-reports/
   Rest_Assured:
    runs-on: ubuntu-latest
    steps:
@@ -136,7 +136,7 @@ jobs:
  
          name: RestAssured-test-reports
          if: always()  # Ensure reports are uploaded even if tests fail
-         path: Go_Rest1_api/target/surefire-reports  
+         path: Go_Rest1_api/target/surefire-reports/ 
       
 
      
