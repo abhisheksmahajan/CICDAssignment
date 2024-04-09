@@ -126,7 +126,7 @@ jobs:
       - name: Build with Maven
         run: |
          cd Go_Rest1_api
-         mvn -B clean test
+         mvn clean test
  
       - name: Upload Test Reports
  
