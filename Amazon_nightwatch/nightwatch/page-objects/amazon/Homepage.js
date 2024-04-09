@@ -13,8 +13,7 @@ const searchCommands = {
     // },
     searchproduct(product){
       
-      return this.waitForElementVisible('@searchBar', 1000)
-      .setValue('@searchBar',product)
+      return this.setValue('@searchBar',product)
     },
     // verifyresult1(Result){
     //   return this
